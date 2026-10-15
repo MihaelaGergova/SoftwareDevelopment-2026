@@ -10,6 +10,7 @@ namespace ToDoManager
     internal class Program
     {
         static List<TaskItem> tasks = new List<TaskItem>();
+        static int nextId = 1;
         static void Main(string[] args)
         {
             while (true)
@@ -46,11 +47,6 @@ namespace ToDoManager
                         Console.WriteLine("Невалидна опция!");
                         Pause();
                         break;
-                    default:
-                        Console.WriteLine("Невалидна опция!");
-                        Pause();
-                        break;
-
                 }
             }
         }
@@ -78,11 +74,17 @@ namespace ToDoManager
                     Console.WriteLine("Невалидна дата! Опитайте отново.");
                 }
 
-                TaskItem task = new TaskItem(title, description, deadline);
+                TaskItem task = new TaskItem(nextId, title, description, deadline);
                 tasks.Add(task);
 
                 Console.WriteLine("Задачата беше добавена успешно!");
                 Pause();
+
+            tasks.Add(task);
+            nextId++;
+            Console.WriteLine("Задачата е добавена!");
+
+
             }
 
         static void ShowTasks()
