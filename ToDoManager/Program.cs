@@ -21,7 +21,7 @@ namespace ToDoManager
                 Console.WriteLine("2. Покажи всички задачи");
                 Console.WriteLine("3. Маркирай задача като изпълнена");
                 Console.WriteLine("4. Изстрий задачи");
-                Console.WriteLine("5л Изход");
+                Console.WriteLine("5. Изход");
 
                 string choice = Console.ReadLine();
 
@@ -79,12 +79,6 @@ namespace ToDoManager
 
                 Console.WriteLine("Задачата беше добавена успешно!");
                 Pause();
-
-            tasks.Add(task);
-            nextId++;
-            Console.WriteLine("Задачата е добавена!");
-
-
             }
 
         static void ShowTasks()
