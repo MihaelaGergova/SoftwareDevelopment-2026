@@ -9,8 +9,7 @@ namespace ToDoManager
 {
     internal class Program
     {
-        private readonly static List<TodoItem> tasks = new List<TodoItem>();
-        private static int nextId = 1;
+        
 
         static void Main(string[] args)
         {
@@ -94,8 +93,6 @@ namespace ToDoManager
                 Console.Write("Избери Id: ");
             }
 
-            TodoItem completedTask = FindById(id);
-            completedTask.Completed();
             Console.WriteLine("Задачата е завършена.");
 
 
@@ -120,23 +117,7 @@ namespace ToDoManager
             }
         }
 
-        static TodoItem FindById(int id)
-        {
-            TodoItem targetTodo = null;
-            foreach (TodoItem todoItem in tasks)
-            {
-                if (todoItem.Id == id)
-                {
-                    targetTodo = todoItem;
-                    break;
-                }
-
-            }
-            if (targetTodo == null)
-                throw new ArgumentException("Няма задача с такова ID");
-
-            return targetTodo;
-        }
+        
 
         private static void AddTodo()
         {
@@ -158,9 +139,7 @@ namespace ToDoManager
                 Console.Write("Краен срок: ");
             }
 
-            TodoItem todoItem = new TodoItem(nextId, title, description, dueDate);
-            tasks.Add(todoItem);
-            nextId++;
+            
             Console.WriteLine("Задачата е добавена.");
 
         }
